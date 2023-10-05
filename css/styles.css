@@ -33,3 +33,15 @@ header {
     background-color: #5D2A42;
     color: white;
 }
+
+.about-us{
+    padding: 40px 280px;
+    background-color: #FFF9EC;
+}
+
+.about-us-text {
+
+}
+.about-us-title {
+    padding-bottom: 20px;
+}
