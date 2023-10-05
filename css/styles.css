@@ -6,20 +6,24 @@
 
 header {
     border-bottom: 1px solid #5D2A42;
-    padding: 0 30px;
+    padding: 10px 30px;
 }
 
 .header-logo {
-    min-width: 150px;
-    padding: 20px 0;
+    white-space: nowrap;
+    padding: 10px 0;
     margin: 0;
     font-family: 'Cormorant Infant', serif;
 }
 
-.login-register {
+.col {
     display: flex;
     align-items: center;
+}
+
+.login-register {
     justify-content: flex-end;
+    margin: 15px 0;
 }
 
 .header-btn {
@@ -52,53 +56,8 @@ header {
     font-family: 'Cormorant Infant', serif;
 }
 
-.clients{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100vh;
-}
-.client {
-    min-height: 540px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 70px;
-    max-width: 300px;
-    flex-grow: 1;
-    box-shadow: 5px 5px 5px #a19a9a;
-}
-.client img, .client p .client h5{
-    height: 300px;
-    width: 100%;
-    display: block;
-}
-.image-container {
-    width: 300px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-.client h5 {
-    font-family: 'Cormorant Infant', serif;
-    font-size: 30px;
-    padding-top: 20px;
-}
-.client p{
-    padding-top: 20px;
-}
-
-
-
-
 @media screen and (max-width: 576px){
-    .header-logo,
-    .login-register {
-        display: flex;
+    .col {
         justify-content: center;
     }
 
@@ -121,19 +80,14 @@ header {
     }
 }
 
-@media screen and (max-width: 408px) {
-    .login-register {
-        margin-bottom: 15px;
-    }
-}
-
 .arts {
     margin-top: 50px;
 }
 
 .carousel-item img {
-    height: 500px;
-    width: auto;
+    height: auto;
+    width: 70%;
+    max-width: 800px;
     margin: 0 auto;
     display: block;
     border-radius: 5px;
@@ -156,6 +110,78 @@ header {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    height: 70px;
-    width: auto;
+    height: auto;
+    width: 35%;
+    min-width: 45px;
+}
+
+@media screen and (max-width: 768px){
+    .carousel-item h2 {
+        font-size: 32px;
+    }
+
+    .carousel-item p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .carousel-item h2 {
+        font-size: 25px;
+    }
+
+    .carousel-item p {
+        font-size: 15px;
+    }
+}
+
+.clients{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFDCCC;
+    flex-wrap: wrap;
+    margin: 50px 0;
+    width: 100%;
+}
+.client {
+    background-color: white;
+    min-height: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 50px;
+    max-width: 300px;
+    flex-grow: 1;
+    box-shadow: 5px 5px 5px #a19a9a;
+    transition: all 0.3s ease-in-out;
+}
+
+.client:hover {
+    scale: 1.02;
+}
+
+.client img {
+    height: 300px;
+    width: 100%;
+}
+
+.image-container {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.client h5 {
+    font-family: 'Cormorant Infant', serif;
+    font-size: 30px;
+    padding-top: 20px;
+}
+.client p{
+    text-align: center;
+    padding: 20px 10px 0;
+    width: 100%;
 }
