@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;500;600;700&display=swap');
+* {
+    font-family: 'Cormorant Infant', serif;
+}
+
+header {
+    border-bottom: 1px solid #b5838d;
+}
+
+.header-logo {
+    padding: 20px 0;
+    margin: 0;
+}
