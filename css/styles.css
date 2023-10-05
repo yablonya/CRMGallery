@@ -9,6 +9,7 @@ header {
 }
 
 .header-logo {
+    min-width: 150px;
     padding: 20px 0;
     margin: 0;
     font-family: 'Cormorant Infant', serif;
@@ -35,13 +36,49 @@ header {
 }
 
 .about-us{
-    padding: 40px 280px;
     background-color: #FFF9EC;
+    padding: 0 20px;
 }
 
-.about-us-text {
-
+.about-us-content {
+    max-width: 1000px;
+    padding: 25px 0;
+    margin: 0 auto;
 }
+
 .about-us-title {
-    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-family: 'Cormorant Infant', serif;
+}
+
+@media screen and (max-width: 576px){
+    .header-logo,
+    .login-register {
+        display: flex;
+        justify-content: center;
+    }
+
+    .login-register {
+        gap: 20px;
+    }
+
+    .header-btn {
+        font-size: 15px;
+        margin-left: 0;
+    }
+
+    .about-us-title {
+        text-align: center;
+    }
+
+    .about-us-content p {
+        text-align: justify;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 408px) {
+    .login-register {
+        padding-bottom: 15px;
+    }
 }
