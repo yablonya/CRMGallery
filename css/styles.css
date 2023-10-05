@@ -91,9 +91,6 @@ header {
     padding-top: 20px;
 }
 
-
-
-
 @media screen and (max-width: 576px){
     .header-logo,
     .login-register {
