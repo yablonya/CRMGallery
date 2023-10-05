@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;500;600;700&family=Mulish:wght@200;300;400;500;600&display=swap');
+
 * {
     font-family: 'Mulish', sans-serif;
     box-sizing: border-box;
@@ -73,11 +74,13 @@ header {
     flex-grow: 1;
     box-shadow: 5px 5px 5px #a19a9a;
 }
-.client img, .client p .client h5{
+
+.client img {
     height: 300px;
     width: 100%;
     display: block;
 }
+
 .image-container {
     width: 300px;
     height: 300px;
@@ -86,11 +89,13 @@ header {
     align-items: center;
     overflow: hidden;
 }
+
 .client h5 {
     font-family: 'Cormorant Infant', serif;
     font-size: 30px;
     padding-top: 20px;
 }
+
 .client p{
     padding-top: 20px;
 }
