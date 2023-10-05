@@ -11,3 +11,15 @@ header {
     padding: 20px 0;
     margin: 0;
 }
+
+.about-us{
+    padding: 40px 280px;
+    background-color: #FFF9EC;
+}
+
+.about-us-text {
+
+}
+.about-us-title {
+    padding-bottom: 20px;
+}
