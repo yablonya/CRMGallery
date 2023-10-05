@@ -6,6 +6,7 @@
 
 header {
     border-bottom: 1px solid #5D2A42;
+    padding: 0 30px;
 }
 
 .header-logo {
@@ -122,6 +123,39 @@ header {
 
 @media screen and (max-width: 408px) {
     .login-register {
-        padding-bottom: 15px;
+        margin-bottom: 15px;
     }
+}
+
+.arts {
+    margin-top: 50px;
+}
+
+.carousel-item img {
+    height: 500px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.carousel-item h2 {
+    width: fit-content;
+    margin: 20px auto 15px;
+    font-family: 'Cormorant Infant', serif;
+    font-size: 40px;
+}
+
+.carousel-item p {
+    width: fit-content;
+    margin: 0 auto;
+    color: #5c636a;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 70px;
+    width: auto;
 }
