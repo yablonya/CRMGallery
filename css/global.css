@@ -21,6 +21,9 @@ header {
     margin: 0;
     font-family: 'Cormorant Infant', serif;
 }
+.header-logo:hover {
+    color: black;
+}
 
 .outlined-btn {
     border: 1px solid #5D2A42;
