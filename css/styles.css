@@ -1,23 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;500;600;700&family=Mulish:wght@200;300;400;500;600&display=swap');
-
-* {
-    font-family: 'Mulish', sans-serif;
-    box-sizing: border-box;
-}
-
-header {
-    border-bottom: 1px solid #5D2A42;
-    padding: 10px 30px;
-}
-
-.header-logo {
-    white-space: nowrap;
-    padding: 10px 0;
-    margin: 0;
-    font-family: 'Cormorant Infant', serif;
-}
-
-.col {
+.header-content .col {
     display: flex;
     align-items: center;
 }
@@ -28,17 +9,7 @@ header {
 }
 
 .header-btn {
-    border: 1px solid #5D2A42;
-    border-radius: 25px;
-    font-size: 20px;
-    font-weight: 300;
-    padding: 6px 20px;
     margin-left: 15px;
-}
-
-.header-btn:hover {
-    background-color: #5D2A42;
-    color: white;
 }
 
 .about-us{
@@ -199,6 +170,7 @@ header {
     width: 80px;
     height: 80px;
 }
+
 .lds-grid div {
     position: absolute;
     width: 16px;
@@ -207,51 +179,61 @@ header {
     background: #fff;
     animation: lds-grid 1.2s linear infinite;
 }
+
 .lds-grid div:nth-child(1) {
     top: 8px;
     left: 8px;
     animation-delay: 0s;
 }
+
 .lds-grid div:nth-child(2) {
     top: 8px;
     left: 32px;
     animation-delay: -0.4s;
 }
+
 .lds-grid div:nth-child(3) {
     top: 8px;
     left: 56px;
     animation-delay: -0.8s;
 }
+
 .lds-grid div:nth-child(4) {
     top: 32px;
     left: 8px;
     animation-delay: -0.4s;
 }
+
 .lds-grid div:nth-child(5) {
     top: 32px;
     left: 32px;
     animation-delay: -0.8s;
 }
+
 .lds-grid div:nth-child(6) {
     top: 32px;
     left: 56px;
     animation-delay: -1.2s;
 }
+
 .lds-grid div:nth-child(7) {
     top: 56px;
     left: 8px;
     animation-delay: -0.8s;
 }
+
 .lds-grid div:nth-child(8) {
     top: 56px;
     left: 32px;
     animation-delay: -1.2s;
 }
+
 .lds-grid div:nth-child(9) {
     top: 56px;
     left: 56px;
     animation-delay: -1.6s;
 }
+
 @keyframes lds-grid {
     0%, 100% {
         opacity: 1;
@@ -259,24 +241,4 @@ header {
     50% {
         opacity: 0.5;
     }
-}
-
-footer {
-    padding: 30px 0;
-    background-color: #5D2A42;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    justify-content: center;
-}
-
-footer img {
-    width: 35px;
-    height: auto;
-    transition: all 0.1s ease-in-out;
-}
-
-footer img:hover {
-    translate: 0 -8px;
-    scale: 1.2;
 }
