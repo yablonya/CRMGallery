@@ -39,7 +39,7 @@
     display: none;
 }
 
-form > img {
+.register-form > img {
     margin: 0 auto;
     width: 140px;
     height: auto;
@@ -79,5 +79,9 @@ form > img {
 @media screen and (max-width: 768px){
     .register-form {
         padding: 40px 20px 100px;
+    }
+
+    .register-form > img {
+        width: 80px;
     }
 }

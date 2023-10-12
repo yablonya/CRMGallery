@@ -1,26 +1,34 @@
 .header-content .col1 {
     text-align: center;
 }
-form {
+
+.login-form {
     margin: 0 auto;
     padding: 40px 20px 300px;
     max-width: 800px;
     display: flex;
     flex-direction: column;
 }
-form label {
+.login-form label {
     padding-bottom: 8px;
 }
 
-form h2 {
+.login-form h2 {
     font-weight: 300;
     text-align: center;
+    margin-bottom: 25px;
 }
 
-form img {
+.login-form img {
     margin: 0 auto;
     width: 100px;
     height: auto;
+}
+
+.login-form input:active,
+.login-form input:focus {
+    border-color: #FB6376;
+    box-shadow: 0 0 0 0.25rem #FCB1A6;
 }
 
 .outlined-btn {
@@ -29,13 +37,25 @@ form img {
     text-align: center;
 }
 
-.login-block button{
-    border: none;
-    border-radius: 5px;
-    background-color: #5D2A42;
-    color: white;
-    font-size: 20px;
-    padding: 8px 10px;
-    margin-top: 20px;
+@media screen and (max-width: 768px){
+    .login-form h2 {
+        font-size: 20px;
+    }
 
+    .login-form img {
+        width: 60px;
+    }
 }
+
+@media screen and (min-width: 1200px){
+    .login-form {
+        padding-bottom: 500px;
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .login-form {
+        padding-bottom: 700px;
+    }
+}
+
