@@ -9,6 +9,17 @@
     margin: 0 auto;
 }
 
+.about-us-content a {
+    font-family: 'Cormorant Infant', serif;
+    text-decoration: 1px underline;
+    font-size: 20px;
+    text-underline-offset: 5px;
+}
+
+.about-us-content a:hover {
+    color: #5c636a;
+}
+
 .about-us-title {
     margin-bottom: 20px;
     font-family: 'Cormorant Infant', serif;

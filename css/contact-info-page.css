@@ -1,0 +1,159 @@
+.heading-block {
+    height: 700px;
+    background-size: cover;
+    background-image: url("../images/The-Creation-of-Adam.png");
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(181, 130, 140, 0.65);
+}
+
+.heading-block h1 {
+    position: relative;
+    max-width: 700px;
+    z-index: 1;
+    font-family: 'Cormorant Infant', serif;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+}
+
+.heading-block a {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 10px;
+    left: 25px;
+    color: white;
+}
+
+.heading-block a img {
+    width: 15px;
+    height: auto;
+    margin-right: 8px;
+}
+
+main h2 {
+    font-family: 'Cormorant Infant', serif;
+    text-align: center;
+    padding: 30px 0 25px;
+    margin: 0;
+}
+
+.contacts {
+    padding: 0 20px;
+}
+
+.contacts .row {
+    justify-content: center;
+    gap: 30px
+}
+
+.contacts .col-3 {
+    height: 150px;
+    min-width: 160px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #E5989B;
+    border-radius: 8px;
+}
+
+.contacts .col-3 h3 {
+    font-size: 27px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.contacts .col-3:hover h3{
+    color: black;
+}
+
+.contacts .col-3 .overlay {
+    opacity: 0;
+    background-color: #E5989B;
+    transition: all 0.3s ease-in-out;
+}
+
+.contacts .col-3:hover .overlay{
+    opacity: 1;
+}
+
+.contacts .col-3 img {
+    position: absolute;
+    opacity: 0;
+    width: 56px;
+    height: auto;
+    top: calc(50% - 28px);
+    left: calc(50% - 28px);
+    transition: all 0.3s ease-in-out;
+}
+
+.contacts .col-3:hover img {
+    opacity: 1;
+}
+
+main div:last-child {
+    display: flex;
+    justify-content: center;
+}
+
+main iframe {
+    width: 65%;
+    height: 500px;
+    margin: 0 auto 40px;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 1200px){
+    .heading-block {
+        height: 600px;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .heading-block {
+        height: 500px;
+    }
+
+    main iframe {
+        width: 70%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .heading-block {
+        height: 400px;
+    }
+
+    .contacts .col-3 h3 {
+        font-size: 20px;
+    }
+
+    main iframe {
+        width: 85%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .heading-block {
+        height: 250px;
+    }
+
+    main iframe {
+        width: 90%;
+        height: 300px;
+    }
+}
