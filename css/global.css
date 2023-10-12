@@ -78,6 +78,18 @@ footer img {
     transition: all 0.1s ease-in-out;
 }
 
+.faq {
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: #5D2A42;
+    background-color: white;
+    padding: 5px 10px;
+    font-weight: 500;
+}
+.faq:hover{
+    color: #5D2A42;
+}
 footer img:hover {
     translate: 0 -8px;
     scale: 1.2;
