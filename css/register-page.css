@@ -1,4 +1,4 @@
-.header-content .col {
+.header-content .col1 {
     text-align: center;
 }
 
@@ -66,6 +66,7 @@
 .ref-to-login{
     padding: 5px 0 0 5px
 }
+
 .ref-to-login:hover {
     color: #B5838D;
 }

@@ -31,6 +31,14 @@
     box-shadow: 0 0 0 0.25rem #FCB1A6;
 }
 
+.ref-to-register {
+    padding: 5px 0 0 5px
+}
+
+.ref-to-register:hover {
+    color: #B5838D;
+}
+
 .outlined-btn {
     margin-top: 30px;
     border-radius: 5px;
