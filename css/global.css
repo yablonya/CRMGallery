@@ -72,10 +72,13 @@ footer {
     justify-content: center;
 }
 
+footer a {
+    transition: all 0.1s ease-in-out;
+}
+
 footer img {
     width: 35px;
     height: auto;
-    transition: all 0.1s ease-in-out;
 }
 
 .faq {
@@ -87,10 +90,12 @@ footer img {
     padding: 5px 10px;
     font-weight: 500;
 }
+
 .faq:hover{
     color: #5D2A42;
 }
-footer img:hover {
+
+footer a:hover {
     translate: 0 -8px;
     scale: 1.2;
 }
