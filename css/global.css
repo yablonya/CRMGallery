@@ -15,6 +15,11 @@ header {
     padding: 10px 30px;
 }
 
+.header-content .col {
+    display: flex;
+    align-items: center;
+}
+
 .header-logo {
     white-space: nowrap;
     padding: 10px 0;
@@ -23,6 +28,15 @@ header {
 }
 .header-logo:hover {
     color: black;
+}
+
+.login-register {
+    justify-content: flex-end;
+    margin: 15px 0;
+}
+
+.header-btn {
+    margin-left: 15px;
 }
 
 .outlined-btn {
@@ -67,4 +81,19 @@ footer img {
 footer img:hover {
     translate: 0 -8px;
     scale: 1.2;
+}
+
+@media screen and (max-width: 576px){
+    .col {
+        justify-content: center;
+    }
+
+    .login-register {
+        gap: 20px;
+    }
+
+    .header-btn {
+        font-size: 15px;
+        margin-left: 0;
+    }
 }
