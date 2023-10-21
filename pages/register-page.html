@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.css">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/register-page.css">
+  <link rel="stylesheet" href="../css/regTable.css">
   <title>Registration</title>
 </head>
 <body>
@@ -24,32 +25,61 @@
 </header>
 
 <main>
-  <form class="register-form">
+  <form class="register-form" onsubmit="return false;">
     <img src="../images/icons/register-icon.png" alt = "register-icon">
     <h2>Join us!</h2>
     <div class="mb-3">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name">
+      <input type="text" class="form-control" id="name" name="name" oninput="nameValidator(this)">
+      <p id="nameErrorMessage"></p>
     </div>
     <div class="mb-3">
       <label for="surname">Surname</label>
-      <input type="text" class="form-control" id="surname" name="surname">
+      <input type="text" class="form-control" id="surname" name="surname" oninput="nameValidator(this)">
+      <p id="surnameErrorMessage"></p>
     </div>
     <div class="mb-3">
       <label for="midname">Middle name</label>
-      <input type="text" class="form-control" id="midname" name="midname">
+      <input type="text" class="form-control" id="midname" name="midname" oninput="nameValidator(this)">
+      <p id="midnameErrorMessage"></p>
     </div>
     <div class="mb-3">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email">
+      <input type="email" class="form-control" id="email" name="email" oninput="emailValidator(this)">
+      <p id="emailErrorMessage"></p>
     </div>
     <div class="mb-3">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="email">
+      <input type="password" class="form-control" id="password" name="password" oninput="passwordValidator(this)">
+      <button type="button" id="showPassword">Show Password</button>
+      <p id="passwordErrorMessage"></p>
     </div>
     <div class="mb-3">
       <label for="date">Date</label>
       <input type="date" class="form-control" id="date" name="date">
+      <p id="dateErrorMessage"></p>
+    </div>
+    <div class="mb-3">
+      <fieldset>
+        <legend>Select your gender:</legend>
+        <div>
+          <input type="radio" id="male" name="gender" value="Male" checked />
+          <label for="male">Male</label>
+        </div>
+
+        <div>
+          <input type="radio" id="female" name="gender" value="Female" />
+          <label for="female">Female</label>
+        </div>
+
+        <div>
+          <input type="radio" id="other" name="gender" value="Other" />
+          <label for="other">Other</label>
+        </div>
+      </fieldset>
+    </div>
+    <div class="mb-3">
+      <input type="tel" id="telephone" required>
     </div>
     <div class="mb-3">
       <label for="file-input" class="file-label">
@@ -58,10 +88,30 @@
       </label>
       <input type="file" id="file-input" name="file">
     </div>
-    <button type="submit" class="filled-btn">Register</button>
+    <button type="button" class="filled-btn" onclick="addRow()">Register</button>
     <a class="ref-to-login" href="login-page.html">Already joined us?</a>
     <a href="../index.html" class="outlined-btn">To Main Page</a>
   </form>
+  <table id="dataTable">
+    <thead>
+    <tr>
+      <th><input type="checkbox" id="masterCheckbox" onclick="toggleCheckboxes()"></th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Middle name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Date of Birth</th>
+      <th>Gender</th>
+      <th>File name</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+  <button class="filled-btn mb-1" id="duplicate-btn" onclick="duplicateRows()">Duplicate</button>
+  <button class="filled-btn mb-1" id="delete-btn" onclick="deleteRows()">Delete</button>
 </main>
 
 <footer>
@@ -82,5 +132,6 @@
   </a>
 </footer>
 <script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/registerScript.js"></script>
 </body>
 </html>
