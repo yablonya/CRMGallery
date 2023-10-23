@@ -31,33 +31,43 @@
     <div class="mb-3">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" name="name" oninput="nameValidator(this)">
-      <p id="nameErrorMessage"></p>
+      <div id="namePermanentErrorMessage" class="errorText"></div>
+      <div id="nameTemporaryErrorMessage" class="errorText"></div>
     </div>
     <div class="mb-3">
       <label for="surname">Surname</label>
       <input type="text" class="form-control" id="surname" name="surname" oninput="nameValidator(this)">
-      <p id="surnameErrorMessage"></p>
+      <div id="surnamePermanentErrorMessage" class="errorText"></div>
+      <div id="surnameTemporaryErrorMessage" class="errorText"></div>
     </div>
     <div class="mb-3">
       <label for="midname">Middle name</label>
       <input type="text" class="form-control" id="midname" name="midname" oninput="nameValidator(this)">
-      <p id="midnameErrorMessage"></p>
+      <div id="midnamePermanentErrorMessage" class="errorText"></div>
+      <div id="midnameTemporaryErrorMessage" class="errorText"></div>
     </div>
     <div class="mb-3">
       <label for="email">Email</label>
       <input type="email" class="form-control" id="email" name="email" oninput="emailValidator(this)">
-      <p id="emailErrorMessage"></p>
+      <div id="emailPermanentErrorMessage" class="errorText"></div>
+      <div id="emailTemporaryErrorMessage" class="errorText"></div>
     </div>
     <div class="mb-3">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" oninput="passwordValidator(this)">
-      <button type="button" id="showPassword">Show Password</button>
-      <p id="passwordErrorMessage"></p>
+      <div class="password-input" id = "password-input">
+        <input type="password" class="form-control" id="password" name="password" oninput="passwordValidator(this)">
+        <button type="button" id="showPassword">
+          <img src="../images/icons/show-password.png" alt="Show Password">
+        </button>
+      </div>
+      <div id="passwordPermanentErrorMessage" class="errorText"></div>
+      <div id="passwordTemporaryErrorMessage" class="errorText"></div>
     </div>
     <div class="mb-3">
       <label for="date">Date</label>
       <input type="date" class="form-control" id="date" name="date">
-      <p id="dateErrorMessage"></p>
+      <div id="datePermanentErrorMessage" class="errorText"></div>
+      <div id="dateTemporaryErrorMessage" class="errorText"></div>
     </div>
     <div class="mb-3">
       <fieldset>

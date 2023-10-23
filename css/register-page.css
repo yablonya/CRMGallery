@@ -86,3 +86,40 @@
         width: 80px;
     }
 }
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+.password-input {
+    position: relative;
+    width: 100%;
+}
+
+.password-input input {
+    width: 100%;
+    padding-right: 12px;
+}
+
+.password-input button {
+    display: flex;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.password-input button img{
+    width: 15px;
+    height: auto;
+}
