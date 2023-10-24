@@ -1,3 +1,11 @@
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
 .header-content .col1 {
     text-align: center;
 }
@@ -7,7 +15,7 @@
     flex-direction: column;
     max-width: 800px;
     margin: 0 auto;
-    padding: 50px 20px 200px;
+    padding: 50px 20px 100px;
 }
 
 .register-form h2 {
@@ -52,7 +60,7 @@
     padding: 5px 10px;
     border-radius: 5px;
     border: 1px solid #CED4DA;
-    margin-top: 5px;
+    margin-top: 15px;
     cursor: pointer;
 }
 
@@ -78,21 +86,9 @@
 }
 
 @media screen and (max-width: 768px){
-    .register-form {
-        padding: 40px 20px 100px;
-    }
-
     .register-form > img {
         width: 80px;
     }
-}
-
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    50% { transform: translateX(10px); }
-    75% { transform: translateX(-10px); }
-    100% { transform: translateX(0); }
 }
 
 .shake {
@@ -122,4 +118,50 @@
 .password-input button img{
     width: 15px;
     height: auto;
+}
+
+.gender-buttons {
+    display: flex;
+    padding: 10px 0;
+}
+
+.gender-buttons div {
+    margin-right: 30px;
+}
+
+.gender-buttons div label{
+    padding-bottom: 0;
+}
+
+.table-controls{
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1500px;
+}
+
+.table-responsive {
+    padding: 0 20px;
+}
+
+.table-controls button{
+    padding: 8px 15px;
+    margin-right: 20px;
+}
+
+.custom-table {
+    margin: 20px auto 40px;
+    max-width: 1500px;
+    padding: 0 20px;
+}
+
+.custom-table th,
+.custom-table td{
+    border: none;
+    text-align: center;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+}
+
+.custom-table td{
+    border-bottom: 1px solid #dedede;
 }

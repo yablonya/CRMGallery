@@ -29,11 +29,6 @@ h2 {
     font-family: 'Cormorant Infant', serif;
 }
 
-.table {
-    margin: 20px auto 40px;
-    max-width: 1500px;
-}
-
 .preview-img{
     border-radius: 3px;
     width: 70px;
@@ -51,24 +46,13 @@ h2 {
     margin-right: 5px;
 }
 
+.table {
+    margin: 20px auto 40px;
+    max-width: 1500px;
+}
+
 @media screen and (max-width: 768px){
     h2 {
         font-size: 22px;
     }
-
-    /*.table {*/
-    /*    margin-bottom: 200px;*/
-    /*}*/
 }
-
-/*@media screen and (min-width: 1200px){*/
-/*    .table {*/
-/*        margin-bottom: 350px;*/
-/*    }*/
-/*}*/
-
-/*@media screen and (min-width: 1400px){*/
-/*    .table {*/
-/*        margin-bottom: 500px;*/
-/*    }*/
-/*}*/
