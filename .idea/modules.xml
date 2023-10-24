@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CRMGallery.iml" filepath="$PROJECT_DIR$/.idea/CRMGallery.iml" />
-      <module fileurl="file://$USER_HOME$/WebstormProjects/First_frontend_task/.idea/First_frontend_task.iml" filepath="$USER_HOME$/WebstormProjects/First_frontend_task/.idea/First_frontend_task.iml" />
     </modules>
   </component>
 </project>

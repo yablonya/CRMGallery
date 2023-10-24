@@ -1,5 +1,6 @@
 main {
     padding: 0 10px;
+    min-height: 100vh;
 }
 
 main > a {
@@ -29,7 +30,7 @@ h2 {
 }
 
 .table {
-    margin: 20px auto 200px;
+    margin: 20px auto 40px;
     max-width: 1500px;
 }
 
@@ -55,19 +56,19 @@ h2 {
         font-size: 22px;
     }
 
-    .table {
-        margin-bottom: 200px;
-    }
+    /*.table {*/
+    /*    margin-bottom: 200px;*/
+    /*}*/
 }
 
-@media screen and (min-width: 1200px){
-    .table {
-        margin-bottom: 350px;
-    }
-}
+/*@media screen and (min-width: 1200px){*/
+/*    .table {*/
+/*        margin-bottom: 350px;*/
+/*    }*/
+/*}*/
 
-@media screen and (min-width: 1400px){
-    .table {
-        margin-bottom: 500px;
-    }
-}
+/*@media screen and (min-width: 1400px){*/
+/*    .table {*/
+/*        margin-bottom: 500px;*/
+/*    }*/
+/*}*/
