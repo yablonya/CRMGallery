@@ -28,6 +28,7 @@
   <form class="register-form" onsubmit="return false;">
     <img src="../images/icons/register-icon.png" alt = "register-icon">
     <h2>Join us!</h2>
+    <button onclick="autofill" id="autofill" class="outlined-btn">Autofill</button>
     <div class="mb-3">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" name="name" oninput="nameValidator(this)">
@@ -89,7 +90,8 @@
       </fieldset>
     </div>
     <div class="mb-3">
-      <input type="tel" id="telephone" required>
+      <label for="cellphone">Phone number</label>
+      <input type="text" id="cellphone" class="cellphone" required>
     </div>
     <div class="mb-3">
       <label for="file-input" class="file-label">
@@ -113,6 +115,7 @@
       <th>Password</th>
       <th>Date of Birth</th>
       <th>Gender</th>
+      <th>Phone</th>
       <th>File name</th>
     </tr>
     </thead>
@@ -120,7 +123,7 @@
 
     </tbody>
   </table>
-  <button class="filled-btn mb-1" id="duplicate-btn" onclick="duplicateRows()">Duplicate</button>
+  <button class="filled-btn mb-1" id="duplicate-btn" onclick="duplicateRows(); updateMasterCheckbox()">Duplicate</button>
   <button class="filled-btn mb-1" id="delete-btn" onclick="deleteRows()">Delete</button>
 </main>
 
@@ -141,7 +144,12 @@
     F.A.Q
   </a>
 </footer>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/registerScript.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/registerScript.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/inputmask/dist/jquery.inputmask.min.js"></script>
 </body>
+<script>
+  $(".cellphone").inputmask("+38(099)-999-99-99");
+</script>
 </html>

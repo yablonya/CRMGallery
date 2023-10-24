@@ -6,7 +6,7 @@ const REGEX = {
     SPECIAL_CHAR: /[!@#$%^&*(),.?":{}|<>]/,
     DIGIT: /[0-9]/,
     EMAIL: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-    NAME_UK:  /[А-Яа-яҐґЄєІіЇї`']+/gu,
+    NAME_UK:  /[А-Яа-яҐґЄєІіЇї`']+/,
     CYRILLIC: /[А-Яа-яҐґЄєІіЇїЁё`']+/gu,
 };
 
@@ -170,11 +170,12 @@ function addRow() {
     const password = document.getElementById('password').value;
     const dob = document.getElementById('date').value;
     const file = document.getElementById('file-input').value;
+    const phone = document.getElementById('cellphone').value
     const gender = document.querySelector('input[name="gender"]:checked').value;
 
     if(checkAll()){
         const newRow = table.insertRow();
-        newRow.innerHTML = `<td><input type="checkbox" class="rowCheckbox"></td><td>${name}</td><td>${surname}</td><td>${midname}</td></td><td>${password}</td><td>${email}</td><td>${dob}</td><td>${gender}</td><td>${file}</td>`;
+        newRow.innerHTML = `<td><input type="checkbox" class="rowCheckbox" onclick="updateMasterCheckbox()"></td><td>${name}</td><td>${surname}</td><td>${midname}</td></td><td>${password}</td><td>${email}</td><td>${dob}</td><td>${gender}</td><td>${phone}</td><td>${file}</td>`;
 
 
         document.getElementById('name').value = ''
@@ -224,6 +225,7 @@ function deleteRows() {
             table.deleteRow(i);
         }
     }
+    if(table.length===undefined) document.getElementById('masterCheckbox').checked = false;
 }
 
 function duplicateRows() {
@@ -255,26 +257,38 @@ function clearErrorMessages(){
     if(password.length===0) showError('password', '')
 }
 
-function formatTelephone(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    let formatted = '+38(0';
-    for (let i = 0; i < value.length; i++) {
-        if (i === 2) formatted += ') ';
-        else if (i === 5) formatted += '-';
-        else if (i === 7) formatted += '-';
-        formatted += value[i];
-    }
-}
-
 function Listeners() {
     document.getElementById('password').addEventListener("input", clearErrorMessages)
     document.getElementById('showPassword').addEventListener('mousedown', showPassword);
     document.getElementById('showPassword').addEventListener('mouseup', hidePassword);
     document.getElementById('showPassword').addEventListener('mouseleave', hidePassword);
-    document.getElementById('telephone').addEventListener('input', formatTelephone);
     document.getElementById('date').addEventListener('input', updateDate);
+}
+function autofill(){
+    document.getElementById('password').value = "Greenbaby20!4"
+    document.getElementById('name').value = "Костянтин"
+    document.getElementById('surname').value = "Ісаєв"
+    document.getElementById('midname').value = "Сергійович"
+    document.getElementById('email').value = "onargo@gmail.com"
+    document.getElementById('date').value = '2004-06-17'
+    document.getElementById('cellphone').value = '+38(063)-823-53-77'
+}
+
+function updateMasterCheckbox() {
+    const masterCheckbox = document.getElementById('masterCheckbox');
+    const checkboxes = document.querySelectorAll('.rowCheckbox');
+    let allChecked = true;
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (!checkboxes[i].checked) {
+            allChecked = false;
+            break;
+        }
+    }
+    masterCheckbox.checked = allChecked;
 }
 document.addEventListener('DOMContentLoaded', () => {
     date = setYesterdayDate();
     Listeners();
 });
+document.getElementById('autofill').addEventListener('click', autofill)
