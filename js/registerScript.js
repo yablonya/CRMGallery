@@ -1,6 +1,5 @@
 let date
 let passwordErrorMessages = [];
-let tempError = true
 const REGEX = {
     UPPER_CASE: /[A-Z]/,
     SPECIAL_CHAR: /[!@#$%^&*(),.?":{}|<>]/,
@@ -160,6 +159,14 @@ function checkAll(){
 
 }
 
+function formatDate(date) {
+    let refDate = new Date(date)
+    const dd = String(refDate.getDate()).padStart(2, '0');
+    const mm = String(refDate.getMonth() + 1).padStart(2, '0');
+    const yyyy = refDate.getFullYear();
+
+    return dd + '-' + mm + '-' + yyyy;
+}
 function addRow() {
     const table = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
 
@@ -175,7 +182,7 @@ function addRow() {
 
     if(checkAll()){
         const newRow = table.insertRow();
-        newRow.innerHTML = `<td><input type="checkbox" class="rowCheckbox" onclick="updateMasterCheckbox()"></td><td>${name}</td><td>${surname}</td><td>${midname}</td></td><td>${password}</td><td>${email}</td><td>${dob}</td><td>${gender}</td><td>${phone}</td><td>${file}</td>`;
+        newRow.innerHTML = `<td><input type="checkbox" class="rowCheckbox" onclick="updateMasterCheckbox()"></td><td>${name}</td><td>${surname}</td><td>${midname}</td></td><td>${password}</td><td>${email}</td><td>${formatDate(dob)}</td><td>${gender}</td><td>${phone}</td><td>${file}</td>`;
 
 
         document.getElementById('name').value = ''
