@@ -8,5 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="First_frontend_task" />
+    <orderEntry type="library" name="jquery.inputmask" level="application" />
+    <orderEntry type="library" name="imask" level="application" />
   </component>
 </module>
