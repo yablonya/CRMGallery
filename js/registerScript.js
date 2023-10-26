@@ -1,25 +1,27 @@
 let date
 let passwordErrorMessages = [];
 const REGEX = {
-    UPPER_CASE: /[A-Z]/,
-    SPECIAL_CHAR: /[!@#$%^&*(),.?":{}|<>]/,
-    DIGIT: /[0-9]/,
-    EMAIL: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-    NAME_UK:  /[А-Яа-яҐґЄєІіЇї`']+/,
-    CYRILLIC: /[А-Яа-яҐґЄєІіЇїЁё`']+/gu,
+  UPPER_CASE: /[A-Z]/,
+  SPECIAL_CHAR: /[!@#$%^&*(),.?":{}|<>]/,
+  DIGIT: /[0-9]/,
+  EMAIL: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+  NAME_UK:  /^[\u0400-\u04FF0-9\s\-]+$/,
+  CYRILLIC: /[А-Яа-яҐґЄєІіЇїЁё`']+/gu,
+  SPACES: /\s/,
 };
 
 const ERROR_MESSAGES = {
-    UPPER_CASE: 'Password must contain at least one uppercase letter',
-    SPECIAL_CHAR: 'Password must contain at least one special character',
-    DIGIT: 'Password must contain at least one digit',
-    DATE: 'Password cannot contain your birth date',
-    NAME: 'You cannot have your name in password',
-    LENGTH_SHORT: 'Password must be at least 8 characters',
-    LENGTH_LONG: 'Password cannot be longer than 24 characters',
-    EMAIL_INVALID: 'Некоректна email адреса. Будь-ласка перевірте, чи ви вказали її правильно',
-    NAME_INVALID: 'Це поле має бути заповнено лише українською мовою',
-    CYRILLIC: 'You cannot enter cyrillic symbols in this field'
+  UPPER_CASE: 'Password must contain at least one uppercase letter',
+  SPECIAL_CHAR: 'Password must contain at least one special character',
+  DIGIT: 'Password must contain at least one digit',
+  DATE: 'Password cannot contain your birth date',
+  NAME: 'You cannot have your name in password',
+  LENGTH_SHORT: 'Password must be at least 8 characters',
+  LENGTH_LONG: 'Password cannot be longer than 24 characters',
+  EMAIL_INVALID: 'Некоректна email адреса. Будь-ласка перевірте, чи ви вказали її правильно',
+  NAME_INVALID: 'Це поле має бути заповнено лише українською мовою',
+  NAME_DIGITS: 'В цьому полі не має бути чисел',
+  CYRILLIC: 'You cannot enter cyrillic symbols in this field'
 };
 
 const hasUpperCase = (str) => REGEX.UPPER_CASE.test(str);
@@ -27,36 +29,37 @@ const hasSpecialChar = (str) => REGEX.SPECIAL_CHAR.test(str);
 const hasDigit = (str) => REGEX.DIGIT.test(str);
 
 
-function showError(elementId, message) {
-    const element = document.getElementById(elementId+'PermanentErrorMessage')
-    element.classList.toggle('errorText', !!message);
-    element.innerText = message.toString() || '';
-    element.style.display = ''
+function showError(elementId, message, modifier= '') {
+  const element = document.getElementById(elementId + `${modifier}PermanentErrorMessage`)
+  element.classList.toggle('errorText', !!message);
+  element.innerText = message.toString() || '';
+  element.style.display = ''
 }
 
-
 function showTemporaryError(elementId, message, duration) {
-    const element = document.getElementById(elementId + 'TemporaryErrorMessage');
-    if (element.querySelector('.temporaryError')) {
-        return;
-    }
-    const tempErrorDiv = document.createElement('div');
-    tempErrorDiv.className = 'temporaryError';
-    tempErrorDiv.innerText = message;
-    tempErrorDiv.style.color = 'red';
-    element.appendChild(tempErrorDiv);
+  const element = document.getElementById(elementId + 'TemporaryErrorMessage');
+  if (element.querySelector('.temporaryError')) {
+    return;
+  }
+  const tempErrorDiv = document.createElement('div');
+  tempErrorDiv.className = 'temporaryError';
+  tempErrorDiv.innerText = message;
+  tempErrorDiv.style.color = 'red';
+  element.appendChild(tempErrorDiv);
 
-    setTimeout(() => {
-        if (document.body.contains(tempErrorDiv)) {
+  setTimeout(() => {
+    if (document.body.contains(tempErrorDiv)) {
             element.removeChild(tempErrorDiv);
         }
     }, duration);
 }
 
 function nameValidator(name) {
-    const isValid = REGEX.NAME_UK.test(name.value) || name.value.length === 0;
-    showError(name.id, isValid ? '' : ERROR_MESSAGES.NAME_INVALID);
-    return isValid;
+  const isUkr = REGEX.NAME_UK.test(name.value) || name.value.length === 0;
+  const isDigit = !REGEX.DIGIT.test(name.value) || name.value.length === 0;
+  showError(name.id, isUkr ? '' : ERROR_MESSAGES.NAME_INVALID);
+  showError(name.id, isDigit ? '' : ERROR_MESSAGES.NAME_DIGITS, 'Digits');
+  return isUkr && isDigit;
 }
 
 function emailValidator(email) {
@@ -64,6 +67,11 @@ function emailValidator(email) {
     showError(email.id, isValid ? '' : ERROR_MESSAGES.EMAIL_INVALID);
     return isValid;
 }
+
+
+
+
+// Password validation
 
 function hasDate(str, date) {
     const datePatterns = (date.toString() + '-' + date.toString().slice(2,4)).split('-');
@@ -89,6 +97,7 @@ function nameFilled(){
     if(document.getElementById('midname').value.length>0) idList.push('midname')
     return idList
 }
+
 function containName(str){
     const names = nameFilled().filter((id) =>{
         return str.includes(document.getElementById(id).value);
@@ -144,6 +153,9 @@ function passwordValidator(passwordInput) {
     return passwordErrorMessages.length === 0;
 }
 
+
+
+
 function checkAll(){
     const name = document.getElementById('name');
     const surname = document.getElementById('surname');
@@ -182,7 +194,17 @@ function addRow() {
 
     if(checkAll()){
         const newRow = table.insertRow();
-        newRow.innerHTML = `<td><input type="checkbox" class="rowCheckbox" onclick="updateMasterCheckbox()"></td><td>${name}</td><td>${surname}</td><td>${midname}</td></td><td>${password}</td><td>${email}</td><td>${formatDate(dob)}</td><td>${gender}</td><td>${phone}</td><td>${file}</td>`;
+        newRow.innerHTML =
+          `<td><input type="checkbox" class="rowCheckbox" onclick="updateMasterCheckbox()"></td>
+           <td>${name.replace(/\s/g, '')}</td>
+           <td>${surname.replace(/\s/g, '')}</td>
+           <td>${midname.replace(/\s/g, '')}</td>
+           <td>${password}</td>
+           <td>${email}</td>
+           <td>${formatDate(dob)}</td>
+           <td>${gender}</td>
+           <td>${phone}</td>
+           <td>${file}</td>`;
 
 
         document.getElementById('name').value = ''
@@ -259,18 +281,20 @@ function hidePassword() {
 function updateDate() {
     date = document.getElementById('date').value;
 }
+
 function clearErrorMessages(){
     const password = document.getElementById('password').value
     if(password.length===0) showError('password', '')
 }
 
 function Listeners() {
-    document.getElementById('password').addEventListener("input", clearErrorMessages)
+    document.getElementById('password').addEventListener('input', clearErrorMessages)
     document.getElementById('showPassword').addEventListener('mousedown', showPassword);
     document.getElementById('showPassword').addEventListener('mouseup', hidePassword);
     document.getElementById('showPassword').addEventListener('mouseleave', hidePassword);
     document.getElementById('date').addEventListener('input', updateDate);
 }
+
 function autofill(){
     document.getElementById('password').value = "Greenbaby20!4"
     document.getElementById('name').value = "Костянтин"
@@ -294,8 +318,10 @@ function updateMasterCheckbox() {
     }
     masterCheckbox.checked = allChecked;
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     date = setYesterdayDate();
     Listeners();
 });
+
 document.getElementById('autofill').addEventListener('click', autofill)
