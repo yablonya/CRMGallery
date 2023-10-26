@@ -168,7 +168,6 @@ function checkAll(){
         && nameValidator(midname)
         && passwordValidator(password)
         && emailValidator(email);
-
 }
 
 function formatDate(date) {
@@ -190,6 +189,7 @@ function addRow() {
     const dob = document.getElementById('date').value;
     const file = document.getElementById('file-input').value;
     const phone = document.getElementById('cellphone').value
+    const group = document.getElementById('group').value;
     const gender = document.querySelector('input[name="gender"]:checked').value;
 
     if(checkAll()){
@@ -202,6 +202,7 @@ function addRow() {
            <td>${password}</td>
            <td>${email}</td>
            <td>${formatDate(dob)}</td>
+           <td>${group}</td>
            <td>${gender}</td>
            <td>${phone}</td>
            <td>${file}</td>`;
